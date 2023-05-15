@@ -1,0 +1,108 @@
+@import "src/styles/base/variables";
+@import "src/styles/base/mixin";
+
+.navigation {
+  width: 100%;
+  height: 100%;
+  background: $primary-color;
+  color: $white-color;
+
+  @include media-sm {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: $title-md-font-size;
+    line-height: 42px;
+    padding: 22px 29px 26px;
+    margin: 0;
+
+    @include media-sm {
+      padding: 0;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+
+    @include media-sm {
+      margin-top: 69px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-bottom: 1px solid $white-color;
+    border-top: 1px solid $white-color;
+    text-decoration: none;
+    color: $white-color;
+    font-weight: 800;
+    font-size: $font-size-md;
+
+    &--active {
+      background: $white-color;
+      color: $black-color;
+    }
+  }
+
+  &__body {
+    @include media-sm {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__header {
+    display: none;
+
+    @include media-sm {
+      display: flex;
+      position: absolute;
+      width: calc(100% - 46px);
+      justify-content: space-between;
+      align-items: center;
+      top: 9px;
+      padding-left: 20px;
+      padding-right: 26px;
+    }
+  }
+
+  &__logo {
+    filter: invert(1);
+    width: 28px;
+    height: 41px;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__close-button {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  &__line {
+    width: 28px;
+    height: 3px;
+    background: $white-color;
+    display: block;
+    position: absolute;
+
+    &-right {
+      transform: rotate(45deg);
+    }
+
+    &-left {
+      transform: rotate(-45deg);
+    }
+  }
+}

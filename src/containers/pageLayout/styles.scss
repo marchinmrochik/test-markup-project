@@ -1,0 +1,34 @@
+@import "src/styles/base/variables";
+@import "src/styles/base/mixin";
+
+
+.page-layout {
+  &__content {
+    padding: 50px 20px 0;
+    height: calc(100vh - #{$padding-main-container-desktop} - #{$header-desktop-height});
+
+    &--flex {
+      display: flex;
+      height: 100%;
+    }
+
+    @include media-sm {
+      padding-top: 0;
+      height: calc(100vh - #{$header-mobile-height});
+    }
+  }
+
+  &__aside {
+    width: clamp(#{$aside-min-with}, 100%, #{$aside-max-with});
+    margin-right: 20px;
+    min-height: calc(100vh - #{$padding-main-container-desktop} - #{$header-desktop-height});
+
+    @include media-lg {
+      width: #{$aside-min-with};
+    }
+
+    @include media-sm {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "variables";
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+@mixin media-xs {
+  @media (max-width: $screen-xs) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media (max-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (max-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media (max-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @media (max-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin media-custom($min-width, $max-width) {
+  @media (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+

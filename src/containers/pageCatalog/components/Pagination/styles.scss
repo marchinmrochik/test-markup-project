@@ -1,0 +1,41 @@
+@import "src/styles/base/variables";
+@import "src/styles/base/mixin";
+
+.pagination {
+
+  @include media-sm {
+    margin-top: 23px;
+    margin-left: auto;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+  }
+
+  &__item {
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    font-weight: 400;
+    font-size: $font-size-md;
+    line-height: 28px;
+    border-radius: 14px;
+    background: $primary-color;
+    color: $white-color;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-right: 8px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--active {
+      color: $primary-color;
+      background: $white-color;
+    }
+  }
+}

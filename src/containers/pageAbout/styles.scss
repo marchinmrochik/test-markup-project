@@ -1,0 +1,52 @@
+@import "src/styles/base/variables";
+@import "src/styles/base/mixin";
+
+.page-about-container {
+  height: 100%;
+  width: clamp(calc(100% - #{$aside-min-with}), 100%, calc(100% - #{$aside-max-with}));
+  background: $primary-color;
+  color: $white-color;
+  text-align: center;
+  padding-bottom: 121px;
+
+  @include media-lg {
+    width: calc(100% - #{$aside-min-with});
+  }
+
+  @include media-sm {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: $title-lg-font-size;
+    line-height: 56px;
+    margin: 0;
+
+    @include media-sm {
+      margin-top: 25px;
+    }
+  }
+
+  &__description {
+    font-weight: 500;
+    font-size: $description-lg-font-size;
+    line-height: 23px;
+    text-align: center;
+    max-width: 837px;
+    width: 100%;
+    margin: 24px auto 0;
+
+    @include media-lg {
+      width: calc(100% - 52px);
+      box-sizing: border-box;
+      padding-right: 13px;
+    }
+
+    @include media-sm {
+      text-align: left;
+      margin-top: 35px;
+    }
+  }
+}

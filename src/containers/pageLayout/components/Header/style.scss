@@ -1,0 +1,70 @@
+@import "src/styles/base/variables";
+@import "src/styles/base/mixin";
+
+.header {
+  background: $white-color;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: $header-desktop-height;
+
+  @include media-sm {
+    height: $header-mobile-height;
+    padding: 0 23px 0 20px;
+  }
+
+  &__logo {
+    width: 35px;
+    height: 51px;
+    cursor: pointer;
+
+    @include media-sm {
+      width: 28px;
+      height: 41px;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__hamburger {
+    &-button {
+      width: 28px;
+      height: 19px;
+    }
+
+    &-icon {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &-line {
+        width: 100%;
+        display: block;
+        height: 3px;
+        background: $primary-color;
+      }
+    }
+  }
+
+  &__hamburger-button {
+    display: none;
+
+    @include media-sm {
+      display: block;
+    }
+  }
+
+  &__container-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+  }
+}
