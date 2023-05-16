@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {getCards} from "services/api";
-import {PAGE_SIZE_ELEMENTS} from "services/constants";
-import {splitArray} from "services/utils";
+import {KEYS_TO_CHECK, PAGE_SIZE_ELEMENTS, STORAGE_KEY} from "services/constants";
+import {checkObjectEquality, splitArray} from "services/utils";
 import {Card} from "services/types";
 
 export const fetchCards = createAsyncThunk('cards/fetchCards', async () => {
@@ -26,7 +26,7 @@ interface CardsState {
     pagination: Pagination
 }
 
-const initialState: CardsState = {
+const initialState: CardsState = localStorage.getItem(STORAGE_KEY) ? JSON.parse(<string>localStorage.getItem(STORAGE_KEY)) : {
     cards: [],
     showCards: [],
     loading: false,
@@ -54,6 +54,13 @@ const cardsSlice = createSlice({
                 card.like = like;
             }
             state.showCards = splitArray(state.cards, PAGE_SIZE_ELEMENTS, state.pagination.currentPage)
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify({
+                ...state, pagination: {
+                    currentPage: 1,
+                    totalPages: 0,
+                }
+            }));
         },
         searchCards: (state, action: PayloadAction<string>) => {
             const searchQuery = action.payload.toLowerCase();
@@ -78,11 +85,23 @@ const cardsSlice = createSlice({
                 state.error = null;
             })
             .addCase(fetchCards.fulfilled, (state, action: PayloadAction<Card[]>) => {
+                const getLocalDataCards = localStorage.getItem(STORAGE_KEY);
                 state.loading = false;
-                state.cards = action.payload.map((card) => ({
-                    ...card,
-                    like: false
-                }));
+
+                if(!getLocalDataCards) {
+                    state.cards = action.payload.map((card) => ({
+                        ...card,
+                        like: false
+                    }));
+                } else {
+                    if(!checkObjectEquality(JSON.parse(getLocalDataCards), action.payload, KEYS_TO_CHECK)) {
+                        state.cards = action.payload.map((card) => ({
+                            ...card,
+                            like: false
+                        }));
+                    }
+                }
+
                 state.pagination.totalPages = Math.ceil(state.cards.length / PAGE_SIZE_ELEMENTS);
                 state.showCards = splitArray(state.cards, PAGE_SIZE_ELEMENTS, state.pagination.currentPage)
             })

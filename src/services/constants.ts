@@ -11,3 +11,7 @@ export const PAGE_SIZE_ELEMENTS = 6;
 export const DELAY_SEARCH = 500;
 
 export const SCREEN_SM = 768;
+
+export const STORAGE_KEY = 'cardsData';
+
+export const KEYS_TO_CHECK: string[] = ["id", "title", "description", "image_url"];
