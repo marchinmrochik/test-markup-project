@@ -29,6 +29,26 @@
     }
   }
 
+  &__text {
+    text-align: center;
+    font-size: $title-md-font-size;
+    margin-top: 44px;
+
+    &-error {
+      color: $red-color;
+      margin-top: 40vh;
+    }
+
+    &-loading {
+      color: $primary-color;
+      margin-top: 40vh;
+    }
+
+    &-info {
+      color: $black-color;
+    }
+  }
+
 
   &__mobile-pagination {
     display: none;
@@ -54,6 +74,5 @@
       height: 208px;
       background: $black-color;
     }
-
   }
 }
