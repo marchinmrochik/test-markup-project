@@ -10,6 +10,8 @@ export const PAGE_SIZE_ELEMENTS = 6;
 
 export const DELAY_SEARCH = 300;
 
+export const DELAY_REDIRECT = 5;
+
 export const TIMEOUT_AXIOS = 8000;
 
 export const SCREEN_SM = 768;
