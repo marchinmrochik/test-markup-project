@@ -64,16 +64,13 @@ const cardsSlice = createSlice({
         },
         searchCards: (state, action: PayloadAction<string>) => {
             const searchQuery = action.payload.toLowerCase();
-            const matchedCards: Card[] = [];
-
-            state.cards.forEach((card) => {
+            const matchedCards: Card[] = state.cards.filter((card) => {
                 const {title, description} = card;
                 const isMatch = title.toLowerCase().includes(searchQuery) || description.toLowerCase().includes(searchQuery);
 
-                if (isMatch) {
-                    matchedCards.push(card);
-                }
+                if (isMatch) return card;
             });
+
             state.pagination.totalPages = Math.ceil(matchedCards.length / PAGE_SIZE_ELEMENTS);
             state.pagination.currentPage = state.pagination.currentPage > state.pagination.totalPages ? 1 : state.pagination.currentPage;
             state.showCards = splitArray(matchedCards, PAGE_SIZE_ELEMENTS, state.pagination.currentPage);
@@ -89,13 +86,13 @@ const cardsSlice = createSlice({
                 const getLocalDataCards = localStorage.getItem(STORAGE_KEY);
                 state.loading = false;
 
-                if(!getLocalDataCards) {
+                if (!getLocalDataCards) {
                     state.cards = action.payload.map((card) => ({
                         ...card,
                         like: false
                     }));
                 } else {
-                    if(!checkObjectEquality(JSON.parse(getLocalDataCards).cards, action.payload, KEYS_TO_CHECK)) {
+                    if (!checkObjectEquality(JSON.parse(getLocalDataCards).cards, action.payload, KEYS_TO_CHECK)) {
                         state.cards = action.payload.map((card) => ({
                             ...card,
                             like: false

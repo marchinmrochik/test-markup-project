@@ -2,7 +2,6 @@
 @import "src/styles/base/mixin";
 
 .page-about-container {
-  height: 100%;
   width: clamp(calc(100% - #{$aside-min-with}), 100%, calc(100% - #{$aside-max-with}));
   background: $primary-color;
   color: $white-color;
