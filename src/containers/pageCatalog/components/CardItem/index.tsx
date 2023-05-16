@@ -13,7 +13,7 @@ export const CardItem: React.FC<CardItem> = ({id, title, description, image_url,
     return (
         <section className="card" role="article">
             <figure className="card__image-wrapper">
-                <img src={image_url} alt={title}/>
+                <img src={image_url} alt={title} title={title}/>
                 <figcaption hidden>{title}</figcaption>
             </figure>
             <div className="card__content">
