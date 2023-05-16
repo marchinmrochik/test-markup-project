@@ -94,7 +94,7 @@ const cardsSlice = createSlice({
                         like: false
                     }));
                 } else {
-                    if(!checkObjectEquality(JSON.parse(getLocalDataCards), action.payload, KEYS_TO_CHECK)) {
+                    if(!checkObjectEquality(JSON.parse(getLocalDataCards).cards, action.payload, KEYS_TO_CHECK)) {
                         state.cards = action.payload.map((card) => ({
                             ...card,
                             like: false
