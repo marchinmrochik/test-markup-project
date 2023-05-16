@@ -14,7 +14,7 @@ export const CardItem: React.FC<CardItem> = ({id, title, description, image_url,
         <section className="card" role="article">
             <figure className="card__image-wrapper">
                 <img src={image_url} alt={title}/>
-                <figcaption hidden>title</figcaption>
+                <figcaption hidden>{title}</figcaption>
             </figure>
             <div className="card__content">
                 <h1 className="card__title">{title}</h1>
