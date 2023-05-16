@@ -37,7 +37,6 @@ export const Pagination: React.FC<PaginationProps> = ({
         ));
     }
 
-
     return (
         <div className="pagination">
             <ul className="pagination__list">{renderPageNumbers()}</ul>

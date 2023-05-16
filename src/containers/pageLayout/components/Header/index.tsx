@@ -16,12 +16,20 @@ export const Header = () => {
     const [isMobileNavOpen, setMobileNavOpen] = useState(false);
     const isShowNavigate = location.pathname === ROUTER.HOME;
 
+    const closeNavigation = () => {
+        document.body.style.overflow = 'auto';
+        setMobileNavOpen(false);
+    }
+
      useEffect(() => {
          if(isLargeScreen) {
-             document.body.style.overflow = 'auto';
-             setMobileNavOpen(false);
+             closeNavigation()
          }
      }, [isLargeScreen])
+
+    useEffect(() => {
+        closeNavigation()
+    }, [location.pathname])
 
     const handleMobileNavToggle = () => {
         if(!isMobileNavOpen) {

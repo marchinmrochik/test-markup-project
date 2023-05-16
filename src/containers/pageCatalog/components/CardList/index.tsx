@@ -6,7 +6,6 @@ import {CardItem} from "../CardItem";
 
 import './styles.scss';
 
-
 interface CardListProps {
     items: Card[];
 }

@@ -38,9 +38,9 @@ export const Slider: React.FC<SliderProps> = ({slides}) => {
                 ))}
             </Swiper>
             <div className="swiper-navigation">
-                <Button className="swiper-navigation__button"
+                <Button className="swiper-navigation__button" aria-label="Button navigation prev"
                         onClick={() => swiperRef.current?.slidePrev()}> &lt; </Button>
-                <Button className="swiper-navigation__button"
+                <Button className="swiper-navigation__button" aria-label="Button navigation next"
                         onClick={() => swiperRef.current?.slideNext()}> &gt; </Button>
             </div>
         </div>

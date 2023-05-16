@@ -32,7 +32,6 @@ export const PageHomeContainer = () => {
                     START
                 </Button>
             </section>
-
         </div>
     )
 }

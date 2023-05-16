@@ -1,9 +1,9 @@
 import axios from 'axios';
-import {API} from "./constants";
+import {API, TIMEOUT_AXIOS} from "./constants";
 
 export const Api = axios.create({
     baseURL: API,
-    timeout: 8000,
+    timeout: TIMEOUT_AXIOS,
     headers: {
         Accept: 'application/json'
     },

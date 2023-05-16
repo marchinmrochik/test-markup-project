@@ -39,9 +39,11 @@ export const PageCatalogContainer = () => {
                                     onPageChange={(numberPage) => dispatch(onPageChange(numberPage))}
                         />
                     </div>
+                    {
+                        showCards.length ? <footer className='page-catalog-container__footer'/> : null
+                    }
                 </>
             ) : null
         }
-        <footer className='page-catalog-container__footer'/>
     </div>
 }

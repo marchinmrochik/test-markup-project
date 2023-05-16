@@ -50,9 +50,9 @@ const cardsSlice = createSlice({
         toggleLike: (state, action: PayloadAction<{ cardId: string; like: boolean }>) => {
             const {cardId, like} = action.payload;
             const card = state.cards.find((card) => card.id === cardId);
-            if (card) {
-                card.like = like;
-            }
+
+            if (card) card.like = like;
+
             state.showCards = splitArray(state.cards, PAGE_SIZE_ELEMENTS, state.pagination.currentPage)
 
             localStorage.setItem(STORAGE_KEY, JSON.stringify({
@@ -65,6 +65,7 @@ const cardsSlice = createSlice({
         searchCards: (state, action: PayloadAction<string>) => {
             const searchQuery = action.payload.toLowerCase();
             const matchedCards: Card[] = [];
+
             state.cards.forEach((card) => {
                 const {title, description} = card;
                 const isMatch = title.toLowerCase().includes(searchQuery) || description.toLowerCase().includes(searchQuery);
