@@ -8,3 +8,12 @@ export const Api = axios.create({
         Accept: 'application/json'
     },
 });
+
+Api.interceptors.response.use(
+    (res) => {
+        return res.data;
+    },
+    async (err) => {
+        return Promise.reject(err);
+    }
+);
