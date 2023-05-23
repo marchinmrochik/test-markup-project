@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 import {Navigation} from "../Navigation";
-import {Button} from "components";
+import {Button, ImageContainer} from "components";
 import {ROUTER} from "services/constants";
 import {useCheckScreenWidth} from "services/hooks";
 import {logo} from "assets/images";
@@ -47,11 +47,13 @@ export const Header = () => {
 
     return (
         <header className="header">
-            <figure className="header__logo" onClick={handleLogo}>
-                <img src={logo} alt="logo"/>
-                <figcaption hidden>logo company</figcaption>
-            </figure>
-
+            <ImageContainer
+                className="header__logo"
+                onClick={handleLogo}
+                imageUrl={logo}
+                title="logo"
+                figcaption="logo company"
+            />
             {
                 !isShowNavigate ? (
                     <Button className="header__hamburger-button" aria-label="open navigation panel"
