@@ -4,7 +4,7 @@ import {toggleLike} from "store/reducers/cardsReducer";
 import {Card} from "services/types";
 import {CardItem} from "../CardItem";
 
-import './styles.scss';
+import "./styles.scss";
 
 interface CardListProps {
     items: Card[];
@@ -18,7 +18,7 @@ export const CardList: React.FC<CardListProps> = ({items}) => {
     };
 
     return (
-        <div className='card-list'>
+        <div className="card-list">
             {items.map((item, index) =>
                 <CardItem key={item.title + index} {...item} onToggleLike={onToggleLike}/>
             )}

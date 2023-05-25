@@ -1,14 +1,14 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback} from "react";
 import {DELAY_SEARCH} from "services/constants";
 
-import './styles.scss';
+import "./styles.scss";
 
 interface SearchProps {
     onSearch: (query: string) => void;
 }
 
 export const Search: React.FC<SearchProps> = ({onSearch}) => {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState("");
 
     const handleInputChange = useCallback(
         (event: React.ChangeEvent<HTMLInputElement>) => {

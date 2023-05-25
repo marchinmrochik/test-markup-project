@@ -1,11 +1,10 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {getCards} from "services/api";
 import {KEYS_TO_CHECK, PAGE_SIZE_ELEMENTS, STORAGE_KEY} from "services/constants";
 import {checkObjectEquality, splitArray} from "services/utils";
 import {Card} from "services/types";
 
-export const fetchCards = createAsyncThunk('cards/fetchCards', async () => {
+export const fetchCards = createAsyncThunk("cards/fetchCards", async () => {
     try {
         return await getCards();
     } catch (error: any) {
@@ -26,7 +25,7 @@ interface CardsState {
     pagination: Pagination
 }
 
-const initialState: CardsState = localStorage.getItem(STORAGE_KEY) ? JSON.parse(<string>localStorage.getItem(STORAGE_KEY)) : {
+const initialState: CardsState = localStorage.getItem(STORAGE_KEY) ? JSON.parse(localStorage.getItem(STORAGE_KEY) as string) : {
     cards: [],
     showCards: [],
     loading: false,
@@ -38,7 +37,7 @@ const initialState: CardsState = localStorage.getItem(STORAGE_KEY) ? JSON.parse(
 };
 
 const cardsSlice = createSlice({
-    name: 'cards',
+    name: "cards",
     initialState,
     reducers: {
         onPageChange: (state, action: PayloadAction<number>) => {
@@ -66,9 +65,7 @@ const cardsSlice = createSlice({
             const searchQuery = action.payload.toLowerCase();
             const matchedCards: Card[] = state.cards.filter((card) => {
                 const {title, description} = card;
-                const isMatch = title.toLowerCase().includes(searchQuery) || description.toLowerCase().includes(searchQuery);
-
-                if (isMatch) return card;
+                return title.toLowerCase().includes(searchQuery) || description.toLowerCase().includes(searchQuery);
             });
 
             state.pagination.totalPages = Math.ceil(matchedCards.length / PAGE_SIZE_ELEMENTS);
@@ -105,7 +102,7 @@ const cardsSlice = createSlice({
             })
             .addCase(fetchCards.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.error.message ?? 'Something went wrong';
+                state.error = action.error.message ?? "Something went wrong";
             });
     },
 });

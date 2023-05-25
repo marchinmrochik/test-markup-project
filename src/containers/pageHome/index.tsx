@@ -3,7 +3,7 @@ import {ROUTER} from "services/constants";
 import {Button, ImageContainer} from "components";
 import {logo} from "assets/images";
 
-import './style.scss';
+import "./style.scss";
 
 
 export const PageHomeContainer = () => {
@@ -14,7 +14,7 @@ export const PageHomeContainer = () => {
     };
 
     return (
-        <div className="home-page">
+        <article className="home-page">
             <ImageContainer
                 imageUrl={logo}
                 className="home-page__logo"
@@ -34,6 +34,6 @@ export const PageHomeContainer = () => {
                     START
                 </Button>
             </section>
-        </div>
+        </article>
     )
 }

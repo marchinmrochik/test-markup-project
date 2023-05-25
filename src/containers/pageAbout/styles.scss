@@ -4,6 +4,7 @@
 .page-about-container {
   width: clamp(calc(100% - #{$aside-min-with}), 100%, calc(100% - #{$aside-max-with}));
   background: $primary-color;
+  height: 100%;
   color: $white-color;
   text-align: center;
   padding-bottom: 121px;

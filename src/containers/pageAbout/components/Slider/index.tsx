@@ -16,7 +16,7 @@ export const Slider: React.FC<SliderProps> = ({slides}) => {
     return (
         <div className="swiper-container">
             <Swiper
-                slidesPerView={"auto"}
+                slidesPerView="auto"
                 centeredSlides={true}
                 loop={true}
                 autoplay={{

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
 
-import './styles.scss';
+import "./styles.scss";
 
 interface TimerProps {
     duration: number;
@@ -35,5 +35,5 @@ export const Timer: React.FC<TimerProps> = ({ duration, redirectUrl }) => {
         return `${formattedMinutes}:${formattedSeconds}`;
     };
 
-    return <p className='timer__text'>{formatTime(timeRemaining)}</p>;
+    return <p className="timer__text">{formatTime(timeRemaining)}</p>;
 };

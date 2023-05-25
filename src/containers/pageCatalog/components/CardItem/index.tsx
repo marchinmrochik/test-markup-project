@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import {Card} from "services/types";
 import {ImageContainer} from "components";
 import {likeOutline, likeFilled} from "assets/images";
 
-import './styles.scss';
+import "./styles.scss";
 
 interface CardItem extends Card {
     onToggleLike: (cardId: string, like: boolean) => void;
@@ -26,8 +26,8 @@ export const CardItem: React.FC<CardItem> = ({id, title, description, image_url,
                 className="card__like-wrapper"
                 onClick={() => onToggleLike(id, !like)}
                 imageUrl={like ? likeFilled : likeOutline}
-                title='like'
-                figcaption={`like ${like ? 'filled' : 'outline'}`}
+                title="like"
+                figcaption={`like ${like ? "filled" : "outline"}`}
             />
         </section>
     );

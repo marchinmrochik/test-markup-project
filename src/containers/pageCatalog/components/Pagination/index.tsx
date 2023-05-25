@@ -1,6 +1,6 @@
 import React from "react";
 
-import './styles.scss';
+import "./styles.scss";
 
 interface PaginationProps {
     currentPage: number;
@@ -28,7 +28,7 @@ export const Pagination: React.FC<PaginationProps> = ({
             <li
                 key={pageNumber}
                 className={`pagination__item ${
-                    pageNumber === currentPage ? 'pagination__item--active' : ''
+                    pageNumber === currentPage ? "pagination__item--active" : ""
                 }`}
                 onClick={() => handlePageClick(pageNumber)}
             >

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import {SCREEN_SM} from "./constants";
 
 export const useCheckScreenWidth = (): boolean => {
@@ -12,10 +12,10 @@ export const useCheckScreenWidth = (): boolean => {
 
         checkScreenWidth();
 
-        window.addEventListener('resize', checkScreenWidth);
+        window.addEventListener("resize", checkScreenWidth);
 
         return () => {
-            window.removeEventListener('resize', checkScreenWidth);
+            window.removeEventListener("resize", checkScreenWidth);
         };
     }, []);
 
