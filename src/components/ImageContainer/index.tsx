@@ -9,7 +9,7 @@ interface ImageContainerProps {
     figcaption?: string;
 }
 
-export const ImageContainer: React.FC<ImageContainerProps> = ({ imageUrl, title, className, hiddenFigcaption = true,onClick, figcaption }) => {
+export const ImageContainer: React.FC<ImageContainerProps> = ({ imageUrl, title, className, hiddenFigcaption = true, onClick, figcaption }) => {
     return (
         <figure className={`${className}`} onClick={onClick}>
             <img src={imageUrl} alt={title} title={title} />

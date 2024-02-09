@@ -4,10 +4,21 @@ import {Swiper as SwiperType, Autoplay, Navigation} from "swiper";
 import {Button} from "components";
 
 import 'swiper/css';
-import './styles.scss';
+import './styles.scss'; 
 
 interface SliderProps {
     slides?: string[];
+}
+
+const SliderConfig = {
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    navigation: true,
+    spaceBetween: 31
 }
 
 export const Slider: React.FC<SliderProps> = ({slides}) => {
@@ -17,14 +28,11 @@ export const Slider: React.FC<SliderProps> = ({slides}) => {
         <div className="swiper-container">
             <Swiper
                 slidesPerView="auto"
-                centeredSlides={true}
-                loop={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-                navigation={true}
-                spaceBetween={31}
+                centeredSlides={SliderConfig.centeredSlides}
+                loop={SliderConfig.loop}
+                autoplay={SliderConfig.autoplay}
+                navigation={SliderConfig.navigation}
+                spaceBetween={SliderConfig.spaceBetween}
                 modules={[Autoplay, Navigation]}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;

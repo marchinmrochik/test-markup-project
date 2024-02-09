@@ -7,7 +7,6 @@ import slide4 from './image4-min.png'
 import likeFilled from './like-filled.svg';
 import likeOutline from './like-outline.svg';
 
-
 export {
     logo,
     slide0,

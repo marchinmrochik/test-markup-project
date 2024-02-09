@@ -54,17 +54,17 @@ export const Header = () => {
                 title="logo"
                 figcaption="logo company"
             />
-            {
-                !isShowNavigate ? (
-                    <Button className="header__hamburger-button" aria-label="open navigation panel"
-                            onClick={handleMobileNavToggle}>
-                <span className="header__hamburger-icon" aria-hidden="true">
-                    <span className="header__hamburger-icon-line"/>
-                    <span className="header__hamburger-icon-line"/>
-                    <span className="header__hamburger-icon-line"/>
-                </span>
-                    </Button>) : null
-            }
+
+            {!isShowNavigate ? (
+                <Button className="header__hamburger-button" aria-label="open navigation panel"
+                     onClick={handleMobileNavToggle}>
+                    <span className="header__hamburger-icon" aria-hidden="true">
+                        <span className="header__hamburger-icon-line"/>
+                        <span className="header__hamburger-icon-line"/>
+                        <span className="header__hamburger-icon-line"/>
+                    </span>
+                </Button>
+            ) : null}
 
             {isMobileNavOpen && !isShowNavigate ? (
                 <div className="header__container-navigation">

@@ -14,13 +14,9 @@ export const PageCatalogContainer = () => {
     }, [])
 
     return <article className="page-catalog-container">
-        {
-            loading ? <p className="page-catalog-container__text page-catalog-container__text-loading">Loading...</p> : null
-        }
+        { loading ? <p className="page-catalog-container__text page-catalog-container__text-loading">Loading...</p> : null }
 
-        {
-            error ? <p className="page-catalog-container__text page-catalog-container__text-error">Error: {error}</p> : null
-        }
+        { error ? <p className="page-catalog-container__text page-catalog-container__text-error">Error: {error}</p> : null }
 
         {
             !loading && !error ? (
@@ -42,9 +38,7 @@ export const PageCatalogContainer = () => {
                     {
                         !showCards.length ? <p className="page-catalog-container__text page-catalog-container__text-info">Nothing found</p> : null
                     }
-                    {
-                        showCards.length ? <footer className="page-catalog-container__footer"/> : null
-                    }
+                    { showCards.length ? <footer className="page-catalog-container__footer"/> : null }
                 </>
             ) : null
         }
