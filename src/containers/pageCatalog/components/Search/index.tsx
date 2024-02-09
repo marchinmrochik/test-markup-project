@@ -33,7 +33,7 @@ export const Search: React.FC<SearchProps> = ({onSearch}) => {
     };
 
     return (
-        <form className="search-form" onSubmit={handleSubmit}>
+        <form className="search-form" onSubmit={handleSubmit} data-testid="search-form">
             <input
                 type="text"
                 value={query}

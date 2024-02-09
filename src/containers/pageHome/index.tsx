@@ -5,7 +5,6 @@ import {logo} from "assets/images";
 
 import "./style.scss";
 
-
 export const PageHomeContainer = () => {
     const navigate = useNavigate()
 
